@@ -1,32 +1,13 @@
-IMDB movie fetcher version 4.1
-=====================
+IMDbdump
+A command line tool to search and get details about movies.
 
-Command line tool to search and get details about movies. 
-
-Installation instruction 
-=========================
-1. Download the file
-2. untar it 
-
-#tar zxvf imdbmoviefetcher-v$ver.tar.gz
-
-Replace $ver with version number 
-
-EG : 
-
-tar zxvf imdbmoviefetcher-v3.tar.gz
-
-3. Execute the installer
-
-#cd imdbmoviefetcher
-#sudo ./installer.sh
-
-You need to become root, if the user do not have sudo access.
+imdbdump is a modified version of IMDB Movie Fetcher visit http://imdbmoviefetche.sourceforge.net/
+all credita to Unni unnikrishnan.a@gmail.com
 
 Usage
 =========
 
-   imdb-mf [option] [arg]
+   imdbdump [option] [arg]
 
    Options : 
    -v : gives the version of the script
@@ -34,7 +15,9 @@ Usage
    -t [arg] : Pass the movie title as argument. It is recommended to quote the name as shown in the example below 
 
    Example : 
-   imdb-mf -t "startship troopers"
- 
-   Send your feedback to unnikrishnan.a@gmail.com
-   Visit: http://imdbmoviefetche.sourceforge.net/
+   imdbdump -t "fistful of dollars"
+
+small things I've changed.
+1. imdbdump uses Elinks http://elinks.or.cz/ instead of lynx.
+2. rating bar with asterix for the stars.
+3. using `which executable` instead of direct path.
