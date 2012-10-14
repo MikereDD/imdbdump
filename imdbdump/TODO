@@ -4,3 +4,4 @@ Plans on future add-ons.
 1. thumbnail grabber to fetch the title poster images on request.
 2. merge this with miNfo.
 3. plot output rearranged.
+4. add option to strip color when used with miNfo to create .nfo files.
