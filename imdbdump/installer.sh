@@ -5,8 +5,8 @@ then
 printf "You don't have the sufficient privilege to install this. Are you not root ?\n"
 exit 192
 fi
-install -Dm755 imdb-mf.sh /usr/local/bin/imdbdump
-install -Dm755 imdb-mf.conf /etc/imdbdump.conf
+install -Dm755 imdbdump /usr/local/bin/imdbdump
+install -Dm755 imdbdump.conf /etc/imdbdump.conf
 if [ $? -eq 0 ]
 then
 printf "Installation completed. Execute \"imdbdump -h\" for more info\n"
