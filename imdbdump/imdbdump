@@ -300,7 +300,8 @@ $SED -n '/.*<p itemprop="description">/,/<\/p>/p' $TMPFILE | $SED -n 's/.*itempr
 PLOT=`$ELINKS --dump $PLOTFILE | $SED 's/^  *//g '`
 RATING=`$SED -n '/<span itemprop="ratingValue">/{ s/<[^>]*>//g;p;}' $TMPFILE  | $EGREP -o "[0-9]+\.[0-9]+/[0-9]+" | tail -1`
 DIRECTOR=`$SED -n '/ *tt_ov_dr.*/,/<\/div>/{p;}' $TMPFILE | $SED -n 's/.*itemprop="name">//;s/<.*//p'| $UNIQ | $TR -s ' '| $TR '\n' ','| $SED 's/ ,//g;s/^,//;s/,$//'`
-GENRE=`$GREP "ref_=tt_ov_inf" $TMPFILE| $GREP genre | $SED -n 's/.*itemprop="genre">//;s/<.*//p'| $UNIQ | $TR '\n' ','| $SED 's/^,//;s/,$//'`
+#GENRE=`$GREP "ref_=tt_ov_inf" $TMPFILE| $GREP genre | $SED -n 's/.*itemprop="genre">//;s/<.*//p'| $UNIQ | $TR '\n' ','| $SED 's/^,//;s/,$//'`
+GENRE=`$GREP "ref_=tt_ov_inf" $TMPFILE | $GREP genre | $UNIQ | $SED 's|<a href="/genre/||' | $SED 's|?ref_=tt_ov_inf"||' | $TR '\n' ', '`
 CAST=`$SED -n '/ *tt_ov_st.*/,/<\/div>/{p;}' $TMPFILE | $SED -n 's/.*itemprop="name">//;s/<.*//p'| $UNIQ | $TR -s ' '| $TR '\n' ','| $SED 's/ ,//g;s/^,//;s/,$//' | $CUT -f1 -d '=' | $SED 's/itemprop//'`
 ### End Get Plot
 
